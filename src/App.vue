@@ -1,13 +1,29 @@
-<script setup>
+<script>
+import Navbar from "./components/Navbar/Navbar.vue"
+import Sidebar from "./components/Sidebar/Sidebar.vue"
+import Dashboard from "./view/Dashboard.vue"
 
+export default{
+  components: {
+    Navbar,
+    Sidebar,
+    Dashboard
+  },
+  data() {
+    return {
+      sidebarVisible: true,
+    }
+  }
+}
 </script>
 
 <template>
- <div>
-  <h1 class="lg:text-3xl text-xl font-bold text-red-600">Tailwind</h1>
- </div>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div>
+    <Navbar/>
+    <Sidebar/>
+  </div>
 </template>
+
+<style>
+
+</style>

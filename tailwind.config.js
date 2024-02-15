@@ -3,11 +3,13 @@
 export default {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    extend: {
       fontFamily: {
-        poppins: ["Poppins", "sans"],
+        poppins: ['Poppins', 'sans'],
       },
-    },
+    colors: {
+      'navbar-col': '#7DB0CC',
+      'sidebar-col': '#075985'
+    }
   },
   plugins: [],
 };
