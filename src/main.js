@@ -5,14 +5,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import VueFeather from "vue-feather"
-import { createRouter, createWebHistory } from 'vue-router';
+import router from '/src/router'
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-        { path: '/', component: App }
-    ]
-})
 const app = createApp(App);
 
 library.add(fas);

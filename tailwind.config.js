@@ -1,15 +1,19 @@
-/** @format */
+/** @type {import('tailwindcss').Config} */
 
 export default {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
+    extend: {
       fontFamily: {
         poppins: ['Poppins', 'sans'],
       },
     colors: {
-      'navbar-col': '#7DB0CC',
-      'sidebar-col': '#075985'
+      'blue-col': '#2C338B',
+      'green-col': '#01A54D',
+    },
     }
   },
-  plugins: [],
+  plugins: [
+   require('@tailwindcss/forms'),
+  ],
 };
