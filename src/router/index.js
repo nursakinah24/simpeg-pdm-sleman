@@ -6,6 +6,7 @@ import personalDocument from '../view/personalDocument.vue';
 import employeeRank from '../view/employeeRank.vue';
 import educationHistory from '../view/educationHistory.vue';
 import training from '../view/training.vue';
+import positionHistory from '../view/positionHistory.vue';
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     path: '/training',
     name: 'training',
     component: training
+  },
+  {
+    path: '/position-history',
+    name: 'positionHistory',
+    component: positionHistory
   },
 ]
 
