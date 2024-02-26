@@ -3,6 +3,7 @@ import {createRouter, createWebHistory} from 'vue-router';
 import personalData from '../view/personalData.vue';
 import dashboard from '../view/dashboard.vue';
 import personalDocument from '../view/personalDocument.vue';
+import employeeRank from '../view/employeeRank.vue';
 
 const routes = [
   {
@@ -19,6 +20,11 @@ const routes = [
     path: '/personal-document',
     name: 'personalDocument',
     component: personalDocument
+  },
+  {
+    path: '/employee-rank',
+    name: 'employeeRank',
+    component: employeeRank
   },
 ]
 
