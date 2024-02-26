@@ -5,6 +5,7 @@ import dashboard from '../view/dashboard.vue';
 import personalDocument from '../view/personalDocument.vue';
 import employeeRank from '../view/employeeRank.vue';
 import educationHistory from '../view/educationHistory.vue';
+import training from '../view/training.vue';
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: '/education-history',
     name: 'educationHistory',
     component: educationHistory
+  },
+  {
+    path: '/training',
+    name: 'training',
+    component: training
   },
 ]
 
