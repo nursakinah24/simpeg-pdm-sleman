@@ -10,7 +10,7 @@
           <select v-model="selectedFilter" class="pt-3 pb-2 block w-full px-2 mt-0 text-xs bg-transparent border-2  rounded-lg appearance-none z-1 
                             focus:outline-none focus:ring-0 focus:border-blue-600 peer border-gray-400">
             <option value="nama" selected disabled hidden></option>
-            <option value="jabatan">Jabatan</option>
+         <!--    <option value="jabatan">Jabatan</option> -->
             <option value="status_kepegawaian">Status Kepegawaian</option>
             <option value="unit_kerja">Unit Kerja</option>
           </select>
@@ -42,8 +42,8 @@
                   <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
                   <th class="px-6 py-3 text-centert text-xs font-medium text-gray-500 uppercase tracking-wider">Status
                     Kepegawaian</th>
-                  <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Jabatan
-                  </th>
+<!--                   <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Jabatan
+                  </th> -->
                   <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Unit
                     Kerja
                   </th>
@@ -58,7 +58,7 @@
                   <td class="px-6 py-4 text-center whitespace-nowrap">{{ user.nip }}</td>
                   <td class="px-6 py-4 text-center whitespace-nowrap">{{ user.nama }}</td>
                   <td class="px-6 py-4 text-center whitespace-nowrap">{{ user.status_kepegawaian }}</td>
-                  <td class="px-6 py-4 text-center whitespace-nowrap">{{ user.titles[0]?.jabatan }}</td>
+          <!--         <td class="px-6 py-4 text-center whitespace-nowrap">{{ user.titles[0]?.jabatan }}</td> -->
                   <td class="px-6 py-4 text-center whitespace-nowrap">{{ user.unit_kerja.nama }}</td>
                   <td class="px-6 py-4 text-center whitespace-nowrap">
                     <div class="flex flex-row justify-center items-center">
