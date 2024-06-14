@@ -40,7 +40,7 @@
                                 class="pt-3 pb-2 block w-full px-2 mt-0 bg-transparent border-1 text-sm rounded-lg appearance-none z-1 focus:outline-none focus:ring-0 focus:border-blue-600 peer border-gray-400" />
                             <label for="tanggal_berakhir"
                                 class="absolute text-sm duration-300 top-3 z-10 origin-[0] px-2 bg-white text-gray-500 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
-                                :class="{ 'floating-label': tglAkhir !== '' }">
+                                :class="{ 'floating-label': tanggal_berakhir !== '' }">
                                 Tanggal Akhir
                             </label>
                         </div>
@@ -117,19 +117,76 @@ export default {
         const store = useStore();
         const jabatan = ref('');
         const unit_kerja = ref('');
-        const tmt = ref('');
-        const tanggal_berakhir = ref('');
+      //  const tmt = ref('');
+        //const tanggal_berakhir = ref('');
         const no_sk = ref('');
-        const tanggal_sk = ref('');
+        //const tanggal_sk = ref('');
         const file = ref(null);
         const loading = ref(false);
 
         jabatan.value = props.titleData.jabatan;
         unit_kerja.value = props.titleData.unit_kerja;
-        tmt.value = props.titleData.tmt;
-        tanggal_berakhir.value = props.titleData.tanggal_berakhir;
+       // tmt.value = props.titleData.tmt;
+       const parseTMT = (tmt) => {
+            const [day, month, year] = tmt.split(' ');
+            const monthMapping = {
+                'Januari': '01',
+                'Februari': '02',
+                'Maret': '03',
+                'April': '04',
+                'Mei': '05',
+                'Juni': '06',
+                'Juli': '07',
+                'Agustus': '08',
+                'September': '09',
+                'Oktober': '10',
+                'November': '11',
+                'Desember': '12'
+            };
+            return `${year}-${monthMapping[month]}-${day.padStart(2, '0')}`;
+        };
+        const tmt = ref(props.titleData.tmt ? parseTMT(props.titleData.tmt) : '');
+        //tanggal_berakhir.value = props.titleData.tanggal_berakhir;
+        const parseTanggalBerakhir = (tanggal_berakhir) => {
+            const [day, month, year] = tanggal_berakhir.split(' ');
+            const monthMapping = {
+                'Januari': '01',
+                'Februari': '02',
+                'Maret': '03',
+                'April': '04',
+                'Mei': '05',
+                'Juni': '06',
+                'Juli': '07',
+                'Agustus': '08',
+                'September': '09',
+                'Oktober': '10',
+                'November': '11',
+                'Desember': '12'
+            };
+            return `${year}-${monthMapping[month]}-${day.padStart(2, '0')}`;
+        };
+        const tanggal_berakhir = ref(props.titleData.tanggal_berakhir ? parseTanggalBerakhir(props.titleData.tanggal_berakhir) : '');
         no_sk.value = props.titleData.no_sk;
-        tanggal_sk.value = props.titleData.tanggal_sk;
+       // tanggal_sk.value = props.titleData.tanggal_sk;
+       const parseTanggalSK = (tanggal_sk) => {
+            const [day, month, year] = tanggal_sk.split(' ');
+            const monthMapping = {
+                'Januari': '01',
+                'Februari': '02',
+                'Maret': '03',
+                'April': '04',
+                'Mei': '05',
+                'Juni': '06',
+                'Juli': '07',
+                'Agustus': '08',
+                'September': '09',
+                'Oktober': '10',
+                'November': '11',
+                'Desember': '12'
+            };
+            return `${year}-${monthMapping[month]}-${day.padStart(2, '0')}`;
+        };
+        const tanggal_sk = ref(props.titleData.tanggal_sk ? parseTanggalSK(props.titleData.tanggal_sk) : '');
         file.value = null;
 
         const closeModal = () => {

@@ -6,7 +6,7 @@
                 <loading class="" />
             </div>
             <h1 class="font-bold text-2xl text-center">
-                Tambah Penilaian Kinerja
+                Edit Penilaian Kinerja
             </h1>
             <div class="pt-5 max-h-[86vh] overflow-y-auto">
                 <form @submit.prevent="handleSubmit">
