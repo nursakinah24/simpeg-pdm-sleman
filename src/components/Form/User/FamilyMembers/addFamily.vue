@@ -147,6 +147,7 @@ export default {
     const tanggal_lahir = ref('');
     const jenis_kelamin = ref('');
     const agama = ref('');
+    const file = ref(null);
     const loading = ref(false);
 
     const closeModal = () => {
@@ -164,6 +165,7 @@ export default {
           tanggal_lahir: tanggal_lahir.value,
           jenis_kelamin: jenis_kelamin.value,
           agama: agama.value,
+          file: file.value
          });
         closeModal();
         window.location.reload();
@@ -174,7 +176,12 @@ export default {
       }
     };
 
-    return { nik, hubungan_kel, nama, tempat, tanggal_lahir, jenis_kelamin, agama, loading, handleSubmit, closeModal };
+    
+    const handleFileSelect = (event) => {
+      file.value = event.target.files[0];
+    };
+
+    return { nik, hubungan_kel, nama, tempat, tanggal_lahir, jenis_kelamin, agama, file, loading, handleSubmit,  handleFileSelect, closeModal };
   },
 }
 </script>
