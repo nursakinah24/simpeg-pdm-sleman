@@ -43,12 +43,12 @@ export default {
         throw error;
       }
     },
-    async updateProfileEmail(_, { email, file }) {
+    async updateProfileEmail(_, { email, img }) {
       try {
         const formData = new FormData();
         formData.append("email", email);
-        if (file) {
-          formData.append("file", file); // Use the file name, not the URL
+        if (img) {
+          formData.append("img", img); // Use the file name, not the URL
         }
     
         await axios.patch("users", formData, {

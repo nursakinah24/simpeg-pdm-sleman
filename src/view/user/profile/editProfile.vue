@@ -105,7 +105,7 @@ export default {
       try {
         await store.dispatch('updateProfileEmail', {
           email: email.value,
-          file: img_url.value,
+          img: img_url.value,
         });
 
         // Optionally reload the page or handle success
