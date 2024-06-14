@@ -46,6 +46,7 @@
                                 <option value="" selected disabled hidden></option>
                                 <option value="Tetap">Pegawai Tetap</option>
                                 <option value="Kontrak">Pegawai Kontrak</option>
+                                <option value="Tidak_Tetap">Pegawai Tidak Tetap</option>
                             </select>
                             <label for="select"
                                 class="absolute text-sm duration-300 top-3 z-10 origin-[0] px-2 bg-white text-gray-500 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
@@ -125,20 +126,25 @@ export default {
                     status_kepegawaian: status_kepegawaian.value,
                     password: password.value,
                 });
-                // Check if the API response has an error message
-                if (response.error) {
-                    errorMessage.value = response.message;
+
+                // Assuming a standard structure for the response
+                if (response && response.error) {
+                    errorMessage.value = response.message || 'An error occurred while creating the user.';
                 } else {
                     closeModal();
                     window.location.reload();
                 }
             } catch (error) {
-               /*  errorMessage.value = error.message;
-                console.error('Error:', error); */
+                // Log the error to console for debugging
+                console.error('Error:', error);
+
+                // Provide a user-friendly error message
+                errorMessage.value = 'An unexpected error occurred. Please try again.';
             } finally {
                 loading.value = false;
             }
         };
+
 
 
         return { nama, nip, unit_kerja_id, status_kepegawaian, password, schools, loading, errorMessage, handleSubmit, closeModal };
