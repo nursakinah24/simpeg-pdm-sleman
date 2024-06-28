@@ -31,9 +31,9 @@ const mutations = {
 };
 
 const actions = {
-  async fetchSchools({ commit }, {page = 1, size = 10,}) {
+  async fetchSchools({ commit }, page = 1 ) {
     try {
-      const response = await axios.get(`schools?page=${page}&size=${size}`);
+      const response = await axios.get(`schools?page=${page}`);
       const { schools, total_item, total_page } = response.data;
       commit('SET_SCHOOLS', schools);
       commit('SET_TOTAL_ITEMS', total_item);
@@ -97,9 +97,9 @@ const actions = {
       throw error;
     }
   },
-  async searchSchools({ commit }, { searchQuery, page = 1, size = 10 }) {
+  async searchSchools({ commit }, { searchQuery}) {
     try {
-      const response = await axios.get(`schools/search?query=${searchQuery}&page=${page}&size=${size}`);
+      const response = await axios.get(`schools/search?query=${searchQuery}`);
       const { schools, total_item, total_page } = response.data;
       commit('SET_SCHOOLS', schools);
       commit('SET_TOTAL_ITEMS', total_item);

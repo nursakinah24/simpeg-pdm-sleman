@@ -171,7 +171,7 @@
       const gotoPage = (pageNumber) => {
         if (pageNumber >= 1 && pageNumber <= totalPages.value) {
           store.commit('SET_PAGE', pageNumber); // Update the page in Vuex store
-          store.dispatch('fetchUsers', pageNumber); // Fetch users for the new page
+          store.dispatch('fetchSchools', pageNumber); // Fetch users for the new page
         }
       };
   
@@ -196,7 +196,8 @@
 
     const filteredSchools = computed(() => {
       return schools.value.filter(school =>
-        school.nama.toLowerCase().includes(filter.value.toLowerCase())
+        school.nama.toLowerCase().includes(filter.value.toLowerCase()) ||
+        school.npsn.toLowerCase().includes(filter.value.toLowerCase())
       );
     });
 
