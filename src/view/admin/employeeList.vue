@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-16 pt-8 px-8 w-full relative  text-gray-900 font-poppins">
+  <div class="mt-16 pt-8 px-8 w-full relative text-gray-900 font-poppins">
     <div class="relative flex flex-col p-8 bg-white shadow rounded-lg mb-4">
       <div class="relative flex flex-row justify-start">
         <p class="font-poppins font-bold text-2xl text-center">Daftar Pegawai</p>
@@ -7,10 +7,9 @@
       </div>
       <div class="pt-6 relative flex flex-row space-x-8">
         <div class="relative w-48 flex-col">
-          <select v-model="selectedFilter" class="pt-3 pb-2 block w-full px-2 mt-0 text-xs bg-transparent border-2  rounded-lg appearance-none z-1 
+          <select v-model="selectedFilter" class="pt-3 pb-2 block w-full px-2 mt-0 text-xs bg-transparent border-2 rounded-lg appearance-none z-1 
                             focus:outline-none focus:ring-0 focus:border-blue-600 peer border-gray-400">
-            <option value="nama" selected disabled hidden></option>
-         <!--    <option value="jabatan">Jabatan</option> -->
+      <!--       <option value="nama" selected disabled hidden></option> -->
             <option value="status_kepegawaian">Status Kepegawaian</option>
             <option value="unit_kerja">Unit Kerja</option>
           </select>
@@ -21,7 +20,7 @@
         </div>
         <div class="relative flex ">
           <div class="flex border-2 rounded-lg border-gray-400">
-            <input v-model="filter" type="search" class="px-3 py-2 w-40 text-xs border-transparent " placeholder="Cari">
+            <input v-model="filter" type="search" class="px-3 py-2 w-40 text-xs border-transparent" placeholder="Cari">
             <button @click="search" class="flex items-center justify-center text-xs px-4 border-1">
               <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
             </button>
@@ -42,8 +41,6 @@
                   <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
                   <th class="px-6 py-3 text-centert text-xs font-medium text-gray-500 uppercase tracking-wider">Status
                     Kepegawaian</th>
-<!--                   <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Jabatan
-                  </th> -->
                   <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Unit
                     Kerja
                   </th>
@@ -58,7 +55,6 @@
                   <td class="px-6 py-4 text-center whitespace-nowrap">{{ user.nip }}</td>
                   <td class="px-6 py-4 text-center whitespace-nowrap">{{ user.nama }}</td>
                   <td class="px-6 py-4 text-center whitespace-nowrap">{{ user.status_kepegawaian }}</td>
-          <!--         <td class="px-6 py-4 text-center whitespace-nowrap">{{ user.titles[0]?.jabatan }}</td> -->
                   <td class="px-6 py-4 text-center whitespace-nowrap">{{ user.unit_kerja.nama }}</td>
                   <td class="px-6 py-4 text-center whitespace-nowrap">
                     <div class="flex flex-row justify-center items-center">
@@ -72,8 +68,7 @@
             </table>
           </div>
           <div class="mt-6 flex justify-between">
-            <button @click="prevPage" :disabled="page === 1"
-              class="text-gray-900 hover:text-blue-500">Sebelumnya</button>
+            <button @click="prevPage" :disabled="page === 1" class="text-gray-900 hover:text-blue-500">Sebelumnya</button>
 
             <div class="flex space-x-2">
               <button v-for="pageNumber in totalPages" :key="pageNumber" @click="gotoPage(pageNumber)"
@@ -126,7 +121,7 @@ export default {
     const editEmp = ref(false);
     const deleteEmp = ref(false);
     const selectedEmp = ref({});
-    const selectedFilter = ref('');
+    const selectedFilter = ref('nama' && 'nip'); // Default to 'nama' (name) filter
     const filter = ref('');
     const errorMessage = ref('');
 
@@ -168,7 +163,6 @@ export default {
         errorMessage.value = error.message; // Update errorMessage ref with the error message
       }
     };
-
 
     const deleteUsers = async () => {
       try {
@@ -217,21 +211,22 @@ export default {
     };
 
     const search = () => {
-      if (selectedFilter.value && filter.value) {
+      if (!selectedFilter.value) {
+        selectedFilter.value = 'nama' && 'nip'; // Default to 'nama' if no filter is selected
+      }
+      if (filter.value) {
         store.dispatch('searchUsers', {
           searchQuery: filter.value,
-          filterBy: selectedFilter.value, // Pass selected filter option to the action
-          page: 1,
-          size: 10
+          filterBy: selectedFilter.value,
         });
       } else {
-        console.warn('Please select a filter and enter a search query.');
+        console.warn('Please enter a search query.');
         // You can handle this case as needed, such as showing a warning message to the user
       }
     };
-    
+
     const filteredUsers = computed(() => {
-      if (selectedFilter.value && filter.value) {
+      if (filter.value) {
         return users.value.filter(user => {
           // Check if the selected filter is 'jabatan'
           if (selectedFilter.value === 'jabatan') {
@@ -259,11 +254,10 @@ export default {
           return false; // Return false if filterValue is not a string or no match found
         });
       } else {
-        // Return the original users array if either selectedFilter or filter is not set
+        // Return the original users array if filter is not set
         return users.value;
       }
     });
-
 
     onMounted(fetchUsers);
 
