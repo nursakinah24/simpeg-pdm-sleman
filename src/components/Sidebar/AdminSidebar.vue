@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap mt-16 min-h-screen bg-transparent ">
     <div
-      class="sidebar min-h-screen w-[4.5rem] overflow-hidden border-r hover:w-[22rem] hover:bg-sidebar-col hover:shadow-lg">
+      class="sidebar min-h-screen w-[4.5rem] overflow-hidden border-r hover:w-[16rem] hover:bg-sidebar-col hover:shadow-lg">
       <div class="flex h-screen flex-col justify-between pt-2 pb-6">
         <div class="">
           <ul class="mt-6 space-y-4">

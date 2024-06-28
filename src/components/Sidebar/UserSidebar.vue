@@ -1,5 +1,5 @@
 <template>
-  <div class="flex mt-16 min-h-screen bg-transparent ">
+  <div class="flex flex-wrap mt-16 min-h-screen ">
     <div class="sidebar sticky min-h-screen w-[4.5rem] overflow-hidden border-r hover:w-[22rem] hover:bg-sidebar-col hover:shadow-lg">
       <div class="flex h-screen flex-col justify-between pt-2 pb-6">
         <div class="">
@@ -15,7 +15,7 @@
               </router-link>
             </li>
           </ul>
-        </div>
+        </div>``
       </div>
     </div>
   </div>

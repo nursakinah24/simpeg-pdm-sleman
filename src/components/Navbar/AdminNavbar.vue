@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-r from-blue-col to-green-col fixed w-full z-20 top-0 start-0">
+  <div class=" fixed w-full z-20 top-0 start-0">
     <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-0 p-3">
       <a href="/" class="flex items-center">
         <img src="../../assets/logo muhammadiyah putih.png" alt="Logo" class="w-12 h-12" />
