@@ -23,7 +23,7 @@
                   Jenis Dokumen
                 </th>
                 <th scope="col"
-                  class="px-[5rem] py-3 text-sm text-center text-gray-800 uppercase bg-white border-b border-gray-200">
+                  class="px-[6rem] py-3 text-sm text-center text-gray-800 uppercase bg-white border-b border-gray-200">
                   ID / Nomor
                 </th>
                 <th scope="col"
@@ -39,7 +39,7 @@
                   Validasi
                 </th>
                 <th scope="col"
-                  class="px-[5rem] py-3 text-sm text-center text-gray-800 uppercase bg-white border-b border-gray-200">
+                  class="px-[6rem] py-3 text-sm text-center text-gray-800 uppercase bg-white border-b border-gray-200">
                   Komentar
                 </th>
               </tr>

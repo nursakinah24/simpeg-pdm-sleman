@@ -1,7 +1,7 @@
 <template>
-  <div class="mt-16 pt-8 px-10 lg:px-20 w-auto relative xl:px-20 text-gray-900">
+  <div class="mt-16 pt-8 px-6 w-auto relative text-gray-900">
     <div class="pb-6">
-      <h1 class="font-poppins font-bold text-3xl">
+      <h1 class="pl-8 font-poppins font-bold text-3xl">
         Penilaian Kinerja
       </h1>
     </div>

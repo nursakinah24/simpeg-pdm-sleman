@@ -9,6 +9,7 @@
             <h1 class="font-bold text-2xl text-center">
                 Edit SK
             </h1>
+            <div v-if="errorMessage" class="mt-2 bg-red-200 text-red-900 p-3 rounded-md">{{ errorMessage }}</div>
             <div class="pt-5">
                 <form @submit.prevent="handleSubmit">
                     <div class="divide-y divide-white space-y-4">
@@ -57,6 +58,7 @@
                                 class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Gaji
                                 Pokok</label>
                         </div>
+                        <span class="text-gray-500 text-xs italic mt-1 ml-1">Tuliskan dalam rupiah. Contoh : Rp.1.000.000</span>
                         <div>
                             <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
                                 :class="{ 'bg-blue-100': positionData.file_url }">

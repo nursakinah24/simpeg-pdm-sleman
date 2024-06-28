@@ -43,7 +43,8 @@
                   <div class="flex text-sm text-gray-600">
                     <label for="file-upload"
                       class="relative cursor-pointer bg-sky-50 hover:bg-sky-200 rounded-md font-bold text-gray-500 hover:text-black focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-sky-500">
-                      <span class="">Pilih Dokumen untuk diunggah</span>
+                      <span class="">{{ file ? file.name : 'Pilih Dokumen Penilaian untuk diunggah'
+                                                }}</span>
                       <input id="file-upload" name="file-upload" type="file" @change="handleFileSelect" class="hidden">
                     </label>
                   </div>
