@@ -15,7 +15,7 @@
             <img class="w-64 h-64 rounded-full" :src="getUserImage" alt="" />
           </div>
         </div>
-        <div class="relative mt-4 mx-auto max-w-2xl">
+        <div class="relative mt-4 mx-auto max-w-2xl font-poppins">
           <div class="relative flex flex-col bg-white shadow rounded-lg border-solid border-2">
             <div class="relative flex px-4 py-5">
               <dl class="divide-y">
